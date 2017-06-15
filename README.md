@@ -35,3 +35,4 @@ To view the status of the update, enter:
 ```
 kubectl rollout status ds/<daemonset-name> 
 ```
+Any future apply commands will be executed through a RollingUpdate strategy. 
