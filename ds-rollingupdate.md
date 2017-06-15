@@ -37,3 +37,7 @@ To view the status of the update, enter:
 kubectl rollout status -n <namespace-name> ds/<daemonset-name> 
 ```
 Any future apply commands will be executed through a RollingUpdate strategy. 
+
+# Defining Readiness
+
+It may be possible to define the readiness of the pods, in order to have more control of when rolling update triggers the next pod to restart. Readiness probe documentation can be found at https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/
