@@ -31,3 +31,7 @@ To apply the change, enter:
 ```
 kubectl apply -f <name of compose file>.yaml
 ```
+To view the status of the update, enter:
+```
+kubectl rollout status ds/<daemonset-name> 
+```
