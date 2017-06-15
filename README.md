@@ -10,7 +10,7 @@ kubectl get ds -n neuvector
 ```
 Find current update strategy of daemonset with
 ```
-kubectl get ds/<daemonset-name> -o go-template='{{.spec.updateStrategy.type}}{{"\n"}}'
+kubectl get ds/<daemonset-name> -n neuvector -o go-template='{{.spec.updateStrategy.type}}{{"\n"}}'
 ```
 The default result of this if the strategy has not been set is "OnDelete"
 
@@ -33,6 +33,6 @@ kubectl apply -f <name of compose file>.yaml
 ```
 To view the status of the update, enter:
 ```
-kubectl rollout status ds/<daemonset-name> 
+kubectl rollout status -n neuvector ds/<daemonset-name> 
 ```
 Any future apply commands will be executed through a RollingUpdate strategy. 
