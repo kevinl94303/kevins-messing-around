@@ -1,4 +1,4 @@
-# Rolling Update on Kubernetes 1.6
+# DaemonSet Rolling Update on Kubernetes 1.6
 
 Most of the steps are identical to those found at https://kubernetes.io/docs/tasks/manage-daemon/update-daemon-set/
 To set the update strategy to Rolling Update on Kubernetes ver 1.5 or earlier, certain steps can be taken to avoid pods restarting and updating immediately upon setting the update scheme. These steps can be found in the documentation above. 
