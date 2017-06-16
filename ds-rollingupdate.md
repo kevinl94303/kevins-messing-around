@@ -41,3 +41,7 @@ Any future apply commands will be executed through a RollingUpdate strategy.
 # Defining Readiness
 
 It may be possible to define the readiness of the pods, in order to have more control of when rolling update triggers the next pod to restart. Readiness probe documentation can be found at https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/
+
+# Updating Tag Without Changing the Docker Compose File
+
+Be advised that kubectl apply, when applied to a dockercompose file which is pulling an image from a tag, will not register wwhen that tag has been updated. E.G. if the image is referenced through myuser/myrepo:latest, updating latest and reapplying the dockercompose will not cause the latest image to be pulled. 
