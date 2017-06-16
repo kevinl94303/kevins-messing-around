@@ -32,6 +32,10 @@ To apply the change, enter:
 ```
 kubectl apply -f <name of compose file>.yaml
 ```
+Optionally, if only the image needs to be changed, you can enter:
+```
+kubectl set image -n <namespace-name> ds/<daemonset-name> <container-name>=<container-new-image>
+```
 To view the status of the update, enter:
 ```
 kubectl rollout status -n <namespace-name> ds/<daemonset-name> 
@@ -44,4 +48,4 @@ It may be possible to define the readiness of the pods, in order to have more co
 
 # Updating Tag Without Changing the Docker Compose File
 
-Be advised that kubectl apply, when applied to a dockercompose file which is pulling an image from a tag, will not register wwhen that tag has been updated. E.G. if the image is referenced through myuser/myrepo:latest, updating latest and reapplying the dockercompose will not cause the latest image to be pulled. 
+Be advised that rolling updates, when applied to a dockercompose file which is pulling an image from a tag, will not register when that tag has been updated. E.G. if the image is referenced through myuser/myrepo:latest, updating latest and will not cause the latest image to be pulled, even when kubectl set image or kubectl apply are run. 
