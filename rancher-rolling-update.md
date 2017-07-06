@@ -52,3 +52,5 @@ Once the containers have finished updating, you can use
 rancher-compose up -u -c
 ```
 to confirm the upgrade and delete the old containers. 
+
+Note: For some reason, updating using the command line breaks the UI updating feature. I will further investigate this. 
