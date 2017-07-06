@@ -20,7 +20,20 @@ Once the containers have finished updating, click the ✔️ button in the top r
 
 # In the Terminal using Rancher-Compose
 
-Install rancher-compose from the Rancher Web UI, scrolling down to the page footer and selecting "Download CLI > Rancher Compose", and following the steps from: 
+Following the steps from 
+http://rancher.com/docs/rancher/v1.6/en/cattle/rancher-compose/, install rancher-compose from the Rancher Web UI, scrolling down to the page footer and selecting "Download CLI > Rancher Compose"
 
-http://rancher.com/docs/rancher/v1.6/en/cattle/rancher-compose/
+In the Rancher UI navbar, click on "API > Keys"
+
+Click "Advanced Options"
+
+Click "Add Environment API Key". Name the Key whatever you want. Once the Key is generated, copy+paste this into a secure place for future use. 
+
+In the command line, run: 
+```
+export RANCHER_URL=http://server_ip:8080/
+export RANCHER_ACCESS_KEY=<username_of_environment_api_key>
+export RANCHER_SECRET_KEY=<password_of_environment_api_key>
+```
+using the Key you just generated
 
