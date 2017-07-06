@@ -37,3 +37,16 @@ export RANCHER_SECRET_KEY=<password_of_environment_api_key>
 ```
 using the Key you just generated
 
+Navigate to the folder in which you have a docker-compose.yml file prepared. Make sure the name of the folder is the same as the stack you are updating. E.g. if the name of the stack is "Neuvector", the folder should be named "Neuvector". Otherwise rancher-compose will create a new stack with the name of the folder. 
+
+Run: 
+```
+rancher-compose up -u --interval "30000"
+```
+If the image has changed but the tag has not, you can use the -p option to repull the image. 
+
+Once the containers have finished updating, you can use
+```
+rancher-compose up -u -c
+```
+to confirm the upgrade and delete the old containers. 
