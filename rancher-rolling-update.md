@@ -16,7 +16,7 @@ Scroll down, and if desired, set the "Health Check" to something appropriate
 
 Click "Upgrade"
 
-Once the containers have finished updating, click the button in the top right-hand corner to confirm the upgrade and remove the old containers
+Once the containers have finished updating, click the ✔️ button in the top right-hand corner to confirm the upgrade and remove the old containers
 
 # In the Terminal using Rancher-Compose
 
