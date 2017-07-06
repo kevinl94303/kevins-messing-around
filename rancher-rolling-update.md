@@ -1,4 +1,6 @@
-# Rolling Update in Rancher 1.6
+# Rolling Upgrade in Rancher 1.6
+When we want to update a global service, the built-in "rolling upgrade" scheme is not available. (After reading online, I believe it is because Rancher's default "rolling upgrade" creates a new service to replace the old one, and the public ports are already occupied by the old service). However, Rancher supports an "in-service upgrade" which achieves the results we want. 
+
 # In the Web UI
 (Source: http://rancher.com/docs/rancher/v1.6/en/cattle/upgrading/#in-service-upgrade)
 
