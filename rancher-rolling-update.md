@@ -2,7 +2,7 @@
 # In the Web UI
 (Source: http://rancher.com/docs/rancher/v1.6/en/cattle/upgrading/#in-service-upgrade)
 
-Select the targetted stack which contains the service to upgrade
+In the Rancher Web UI, select the targetted stack which contains the service to upgrade
 
 Select the service to upgrade
 
