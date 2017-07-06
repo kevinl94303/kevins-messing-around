@@ -8,7 +8,7 @@ Select the service to upgrade
 
 In the upper right-hand corner, there is an "upgrade" button shaped like ⬆️. Select this button.
 
-For "Batch Size", enter "1". This will cause one container to be upgraded at a time. For "Batch Interval", set 30 seconds. This will ensure there is enough time for data transfer between old and new containers. Leave "Start Behavior" unchecked. 
+For "Batch Size", enter "1". This will cause one container to be upgraded at a time. For "Batch Interval", set 30 seconds. This will ensure there is enough time for data transfer between old and new containers. Leave "Start Behavior" unchecked (reason is explained in the next section)
 
 Enter the desired URL to pull the image from
 
@@ -39,9 +39,11 @@ using the Key you just generated
 
 Navigate to the folder in which you have a docker-compose.yml file prepared. Make sure the name of the folder is the same as the stack you are updating. E.g. if the name of the stack is "Neuvector", the folder should be named "Neuvector". Otherwise rancher-compose will create a new stack with the name of the folder. 
 
+Note that Rancher offers the option of adding a rancher-compose.yml to set it so that new containers are created before old containers are stopped. However, testing has indicated that this causes previous container data to be overwritten. I speculate this is caused by undesirable results in the election process: specifically, it causes old container data to be overwritten by the newly created containers. 
+
 Run: 
 ```
-rancher-compose up -u --interval "30000"
+rancher-compose up -u --interval "30000" --batch-size "1"
 ```
 If the image has changed but the tag has not, you can use the -p option to repull the image. 
 
