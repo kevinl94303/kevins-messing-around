@@ -10,7 +10,7 @@ Select the service to upgrade
 
 In the upper right-hand corner, there is an "upgrade" button shaped like ⬆️. Select this button.
 
-For "Batch Size", enter "1". This will cause one container to be upgraded at a time. For "Batch Interval", set 30 seconds. This will ensure there is enough time for the election process and data transfer between old and new containers. Make sure to leave "Start Behavior" unchecked to preserve container data (reason is explained in the next section)
+For "Batch Size", enter "1". This will cause one container to be upgraded at a time. For "Batch Interval", set 60 seconds. This will ensure there is enough time for the election process and data transfer between old and new containers. Make sure to leave "Start Behavior" unchecked to preserve container data (reason is explained in the next section)
 
 Enter the desired address to pull the image from
 
@@ -49,7 +49,7 @@ Note that Rancher offers the option of adding a rancher-compose.yml to set it so
 
 Run: 
 ```
-rancher-compose up -u --interval "30000" --batch-size "1"
+rancher-compose up -u --interval "60000" --batch-size "1"
 ```
 If the image has changed but the tag has not, you can use the -p option to repull the image. 
 
