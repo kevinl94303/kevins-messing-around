@@ -10,7 +10,7 @@ Select the service to upgrade
 
 In the upper right-hand corner, there is an "upgrade" button shaped like ⬆️. Select this button.
 
-For "Batch Size", enter "1". This will cause one container to be upgraded at a time. For "Batch Interval", set 30 seconds. This will ensure there is enough time for data transfer between old and new containers. Leave "Start Behavior" unchecked (reason is explained in the next section)
+For "Batch Size", enter "1". This will cause one container to be upgraded at a time. For "Batch Interval", set 30 seconds. This will ensure there is enough time for the election process and data transfer between old and new containers. Make sure to leave "Start Behavior" unchecked to preserve container data (reason is explained in the next section)
 
 Enter the desired address to pull the image from
 
@@ -23,6 +23,8 @@ Click "Upgrade"
 Once the containers have finished updating, click the ✔️ button in the top right-hand corner to confirm the upgrade and remove the old containers
 
 # In the Terminal using Rancher-Compose
+
+Note: For some reason, updating using the command line breaks the UI updating feature. I will further investigate this. Because of this, updating through rancher-compose is undesirable at the moment. However, it does offer more flexibility in editing the docker-compose.yml file. 
 
 Following the steps from 
 http://rancher.com/docs/rancher/v1.6/en/cattle/rancher-compose/, install rancher-compose from the Rancher Web UI, scrolling down to the page footer and selecting "Download CLI > Rancher Compose"
@@ -56,5 +58,3 @@ Once the containers have finished updating, you can use
 rancher-compose up -u -c
 ```
 to confirm the upgrade and delete the old containers. 
-
-Note: For some reason, updating using the command line breaks the UI updating feature. I will further investigate this. 
