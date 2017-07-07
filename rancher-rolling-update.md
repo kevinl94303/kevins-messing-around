@@ -1,7 +1,7 @@
 # Rolling Upgrade in Rancher 1.6
-When we want to update a global service, the built-in "rolling upgrade" scheme is not available. (After reading online, I believe it is because Rancher's default "rolling upgrade" creates a new service to replace the old one, and the public ports are already occupied by the old service). However, Rancher supports an "in-service upgrade" which achieves the results we want. 
+When we want to update a global service, the built-in "rolling upgrade" scheme is not available. (After reading online, I believe it is because Rancher's default "rolling upgrade" creates a new service to replace the old one, and the public ports are already occupied by the old service). However, Rancher supports an "in-service upgrade" which can be configured to perform a rolling upgrade in a desired way. 
 
-# In the Web UI
+# In the Rancher Web UI
 (Source: http://rancher.com/docs/rancher/v1.6/en/cattle/upgrading/#in-service-upgrade)
 
 In the Rancher Web UI, select the targetted stack which contains the service to upgrade
@@ -24,7 +24,7 @@ Once the containers have finished updating, click the ✔️ button in the top r
 
 # In the Terminal using Rancher-Compose
 
-Note: For some reason, updating using the command line breaks the UI updating feature. I will further investigate this. Because of this, updating through rancher-compose is undesirable at the moment. However, it does offer more flexibility in editing the docker-compose.yml file. 
+Note: For some reason, updating using the command line breaks the UI updating feature. I will further investigate this. Because of this and other bugs, updating through rancher-compose is undesirable at the moment. However, it does offer more flexibility in editing the docker-compose.yml file. 
 
 Following the steps from 
 http://rancher.com/docs/rancher/v1.6/en/cattle/rancher-compose/, install rancher-compose from the Rancher Web UI, scrolling down to the page footer and selecting "Download CLI > Rancher Compose"
