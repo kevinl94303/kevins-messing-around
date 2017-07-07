@@ -3,7 +3,7 @@ When we want to update a global service, the built-in "rolling upgrade" scheme i
 
 Be aware that this method requires two or more instances of the container running. If you only have one instance of the desired container running, you can either:
 
-1. Scale up the service to two or more replicas. This method creates multiple instances of the container in one host, which can then be updated using the method of your choice
+1. Scale up the service to two or more replicas. This method creates multiple instances of the container in one host, which can then be updated using the method of your choice. However, if you have any public port mappings, i.e. if your container has global scheduling, this will cause a port conflict, and Rancher will not allow you to scale the container. 
 
 2. Run another instance of the desired container on another currently running host. This may cause problems if the container you want to upgrade has conficts with another container running on the host. 
 
