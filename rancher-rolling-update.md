@@ -1,7 +1,7 @@
 # Rolling Upgrade in Rancher 1.6
 When we want to update a global service, the built-in "rolling upgrade" scheme is not available. (After reading online, I believe it is because Rancher's default "rolling upgrade" creates a new service to replace the old one, and the public ports are already occupied by the old service). However, Rancher supports an "in-service upgrade" which can be configured to perform a rolling upgrade in a desired way. 
 
-Be aware that this method requires two or more instances of the container running. If you only have one instance of the desired container running, you can:
+Be aware that this method requires two or more instances of the container running. If you only have one instance of the desired container running, you can either:
 
 1. Scale up the service to two or more replicas. This method creates multiple instances of the container in one host, which can then be updated following the steps below
 
