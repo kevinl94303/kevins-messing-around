@@ -37,7 +37,7 @@ Click "Add Environment API Key". Name the Key whatever you want. Once the Key is
 
 In the command line, run: 
 ```
-export RANCHER_URL=http://server_ip:8080/
+export RANCHER_URL=<http://server_ip:port_number/>
 export RANCHER_ACCESS_KEY=<username_of_environment_api_key>
 export RANCHER_SECRET_KEY=<password_of_environment_api_key>
 ```
