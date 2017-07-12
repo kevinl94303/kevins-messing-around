@@ -1,13 +1,7 @@
 # Rolling Upgrade in Rancher 1.6
 When we want to update a global service, the built-in "rolling upgrade" scheme is not available. (After reading online, I believe it is because Rancher's default "rolling upgrade" creates a new service to replace the old one, and the public ports are already occupied by the old service). However, Rancher supports an "in-service upgrade" which can be configured to perform a rolling upgrade in a desired way. 
 
-Be aware that this method requires two or more instances of the container running. If you only have one instance of the desired container running, you can either:
-
-1. Scale up the service to two or more replicas. This method creates multiple instances of the container in one host, which can then be updated using the method of your choice. However, if you have any public port mappings, i.e. if your container has global scheduling, this will cause a port conflict, and Rancher will not allow you to scale the container. 
-
-2. Run another instance of the desired container on another currently running host. This may cause problems if the container you want to upgrade has conficts with another container running on the host. 
-
-3. Start up another host to run another instance of the container. This is the safest method, at the cost of temporarily using extra computing power to run another host. 
+Be aware that this method requires two or more instances of the container running, in order to ensure that there is constantly an instance running so that container data persists. If you only have one instance of the desired container running, you can follow the steps under the section titled "Upgrading a single container without losing data" below
 
 # In the Rancher Web UI
 (Source: http://rancher.com/docs/rancher/v1.6/en/cattle/upgrading/#in-service-upgrade)
@@ -29,6 +23,32 @@ It may also be convenient to click on "Networking", and check the box next to "R
 Click "Upgrade"
 
 Once the containers have finished updating, click the ✔️ button in the top right-hand corner to confirm the upgrade and remove the old containers
+
+# Upgrading a single container without losing data
+
+Navigate to the service that you want to upgrade
+
+Click the button next to the upgrade button
+
+Select "Clone"
+
+Name the new container whatever you want, e.g. "Controller-2"
+
+Scroll down to the upgrade settings. Under the "Command" tab, in "Environment", make sure the value of "CLUSTER_JOIN_ADDR" is the name of the original container. 
+
+Click "Create"
+
+Wait at least 30 seconds now to allow data to sync
+
+Navigate to the original service that you want to upgrade
+
+Click the "Upgrade" button
+
+Scroll down to the upgrade settings. Under the "Command" tab, in "Environment", set the value of "CLUSTER_JOIN_ADDR" to the name that you set the new container, e.g. "Controller-2"
+
+Click "Upgrade"
+
+Once the upgrade has finished and you have confirmed it, you can remove the cloned service
 
 # In the Terminal using Rancher-Compose
 
