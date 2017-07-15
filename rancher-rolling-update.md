@@ -48,7 +48,7 @@ Scroll down to the upgrade settings. Under the "Command" tab, in "Environment", 
 
 Click "Upgrade"
 
-Once the upgrade has finished and you have confirmed it, you can remove the cloned service
+Once the upgrade has finished and you have confirmed it, you can remove the clone service (e.g. Controller-2)
 
 # In the Terminal using Rancher-Compose
 
